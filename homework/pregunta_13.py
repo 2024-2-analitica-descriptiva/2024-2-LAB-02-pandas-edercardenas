@@ -20,3 +20,15 @@ def pregunta_13():
     E    275
     Name: c5b, dtype: int64
     """
+    import pandas as pd
+    tbl0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    tbl2 = pd.read_csv('files/input/tbl2.tsv', sep='\t')
+    tbl0.set_index('c0', inplace=True)
+    tbl2.set_index('c0', inplace=True)
+    tbl0 = tbl0.join(tbl2)
+    tbl_0_2 = tbl0.groupby('c1')['c5b'].sum()
+    print(tbl_0_2)
+
+    return tbl_0_2
+
+pregunta_13()

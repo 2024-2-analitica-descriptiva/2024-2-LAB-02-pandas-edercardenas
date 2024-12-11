@@ -21,3 +21,12 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    import pandas as pd
+    tbl0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    tbl0['count'] = 1
+    tbl0_count = tbl0.groupby('c1').count()['count']
+    print(tbl0_count)
+
+    return tbl0_count
+
+pregunta_03()

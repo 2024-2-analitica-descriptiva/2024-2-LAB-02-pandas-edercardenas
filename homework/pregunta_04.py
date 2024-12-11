@@ -20,3 +20,11 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+    import pandas as pd
+    tbl0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    tbl0_avg = (tbl0.groupby('c1').sum()['c2'])/(tbl0.groupby('c1').count()['c2'])
+    print(tbl0_avg)
+
+    return tbl0_avg
+
+pregunta_04()
